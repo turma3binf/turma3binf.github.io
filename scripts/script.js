@@ -20,5 +20,10 @@ function mudarTela(mapa){
 function objetoClicado(objetoNome){
 	var objetoAtual = cozinhaObjetos[objetoNome];
 	
-	hudTemp.innerHTML += '<br>' + objetoAtual[1] + ' -> ' + objetoAtual[2] + ' Kwh';
+	let resultado = '<br>' + objetoAtual[1] + ' -> ' + objetoAtual[2] + ' Kwh';
+	hudTemp.innerHTML += resultado.toString();
+}
+
+if(screen.availHeight > screen.availWidth){
+    alert("Por favor vire o celular!");
 }
