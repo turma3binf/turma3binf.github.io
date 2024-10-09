@@ -13,11 +13,23 @@ body {
 }
 
 font {
-	font-family: "Ubuntu", sans-serif;
+	font-family: "Bree Serif", serif;
 	font-weight: 600;
 	font-style: normal;
 	color: #005208;
-	/*text-shadow: 0 0 10px #000000, 0 0 20px #000000;*/
+	text-shadow: 0 2px 3px rgba(0, 82, 8, 0.5);
+}
+
+@font-face {
+    font-family: "Margin";
+    src: url("/assets/Margin.woff2");
+}
+
+.tituloMargin {
+	font-family: 'Margin', serif;
+	font-weight: 500;
+	font-size: 90px;
+	text-shadow: 0 4px 3px rgba(0, 82, 8, 0.5);
 }
 
 .disableSelect {
@@ -39,7 +51,7 @@ font {
 }
 
 .jogoFundo {
-	border: 2px solid #005208;
+	border: 4px solid #005208;
 }
 
 @media screen and (max-width: 1000px) {

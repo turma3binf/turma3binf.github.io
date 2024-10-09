@@ -8,7 +8,7 @@ var comodoImagens = ["/assets/titulo.png", "/assets/cozinha.png"]
 var comodoAtual = comodos[1];
 
 const cozinhaMapa = document.getElementsByName("mapaCozinha");
-var cozinhaObjetos = [["geladeira", "Geladeira", 250], ["microondas", "Micro-ondas", 750], ["fogao", "Fogão", 1500], ["coifa", "Coifa", 50], ["loucas", "Lava-louças", 1500]];
+var cozinhaObjetos = [["geladeira", "Geladeira", 250], ["microondas", "Micro-ondas", 750], ["fogao", "Fogão", 1500], ["loucas", "Lava-louças", 1500]];
 var cozinhaProgresso = [];
 
 function mudarTela(mapa){
