@@ -1,19 +1,24 @@
 const divJogo = document.getElementById("telaJogo");
 const fundoJogo = document.getElementById("fundoJogo");
+const hudTemp = document.getElementById("hudTemp");
 
 var comodos = ["Titulo", "Cozinha"];
+var comodoMapas = ["#telaTitulo", "#mapaCozinha"]
+var comodoImagens = ["/assets/titulo.png", "/assets/cozinha.png"]
 var comodoAtual = comodos[1];
 
 const cozinhaMapa = document.getElementsByName("mapaCozinha");
-var cozinhaObjetos = ["geladeira", "microondas", "fogao", "coifa", "loucas"];
+var cozinhaObjetos = [["geladeira", "Geladeira", 250], ["microondas", "Micro-ondas", 750], ["fogao", "Fogão", 1500], ["coifa", "Coifa", 50], ["loucas", "Lava-louças", 1500]];
 var cozinhaProgresso = [];
 
-function mudarTela(screen){
-	fundoJogo.setAttribute('usemap', '#mapaCozinha');
+function mudarTela(mapa){
+	fundoJogo.setAttribute('usemap', comodoMapas[mapa]);
 	console.log(fundoJogo);
-	fundoJogo.src = "/assets/cozinha.png";
+	fundoJogo.src = comodoImagens[mapa];
 }
 
 function objetoClicado(objetoNome){
-	console.log("Clicou no " + cozinhaObjetos[objetoNome]);
+	var objetoAtual = cozinhaObjetos[objetoNome];
+	
+	hudTemp.innerHTML += '<br>' + objetoAtual[1] + ' -> ' + objetoAtual[2] + ' Kwh';
 }
