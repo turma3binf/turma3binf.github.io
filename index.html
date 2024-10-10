@@ -1,42 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" style="<!--cursor: url('/assets/cursor.png'), url('/assets/cursor_32.png'), auto;-->">
 	<head>
-		<title>PROJETO 3BINF - COLEGIO PRIMEIRO DE MAIO</title>
+		<title>Ecohouse</title>
 		
 		<!-- Favicon -->
-		<link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-		<!-- <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"> -->
-		<link rel="icon" type="image/png" sizes="32x32" href="/assets/CPM_LOGO.png">
-		<!-- <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
-		<link rel="manifest" href="/assets/site.webmanifest"> -->
+		<link rel="shortcut icon" href="/assets/icon/favicon.ico" type="image/x-icon">
+		<link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/assets/icon/favicon-16x16.png">
+		<link rel="manifest" href="/assets/icon/manifest.json">
 		
 		<!-- CSS -->
 		<link rel="stylesheet" href="/scripts/style.css">
 		
-		<!--
-		Social Media Preview:
-		<meta property="og:title" content="flines">
+		<!-- Social Media Preview: -->
+		<meta property="og:title" content="Ecohouse">
 		<meta property="og:description" content="welcome to the little corner of the web dedicated to my silly projects!">
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://raflines.github.io">
+		<meta property="og:url" content="https://turma3binf.github.io/">
 		
-		<meta property="og:image" content="https://raflines.github.io/assets/home_page/embed_1200px.png">
+		<meta property="og:image" content="https://turma3binf.github.io/assets/midia.jpeg">
 		<meta property="og:image:width" content="1200">
 		<meta property="og:image:height" content="600">
-		<meta name="theme-color" content="#6B24AE">
+		<meta name="theme-color" content="#005208">
 		
-		Twitter Preview:
-		<meta property="twitter:title" content="flines">
-		<meta property="twitter:site" content="flines">
+		<!-- Twitter Preview: -->
+		<meta property="twitter:title" content="Ecohouse">
+		<meta property="twitter:site" content="Ecohouse">
 		<meta property="twitter:description" content="welcome to the little corner of the web dedicated to my silly projects!">
 		<meta property="twitter:card" content="summary_large_image">
-		<meta property="twitter:image:src" content="https://raflines.github.io/assets/home_page/embed_1200px.png">
-		-->
+		<meta property="twitter:image:src" content="https://turma3binf.github.io/assets/midia.jpeg">
 		
 		<!-- Others -->
 		<meta charset="UTF-8"/>
 		<meta name="keywords" content="">
-		<meta name="viewport" content="initial-scale=1.0, height=device-height, width=device-width"/>
+		<meta name="viewport" content="initial-scale=1.0, width=device-width"/>
 
 		
 		<!-- Google Fonts for the new site -->
@@ -47,40 +46,36 @@
 	
 	<body> <!-- CORPO DO SITE -->
 		<center>
-		<div class="headerFooter"> <!-- Header -->
-			<b><font size="5" style="color: #005208;">
-				Bem-vindo à...<br>
-				<font class="tituloMargin">GREENHOUSE</font>
-			</font></b>
-
-			<hr style="width: 50%; margin-bottom: 22px; border: 2px solid #005208;">
-		</div>
-		
 		<div class="mainJogo" style="disableSelect"> <!-- Jogo -->
-			<div id="telaJogo">
-				<img id="fundoJogo" class="jogoFundo" usemap="#telaTitulo" src="/assets/titulo.png"/>
+			<div id="telaJogo" style="position: relative; margin-top: 2.5%;">
+				<div id="interfaceJogo" style="position: absolute; visibility: hidden;">
+					<div class="interfaceJogo">
+						<b><font id="consumoAtual" class="fontEnergia" size="5" style="position: absolute; z-index: 10;">0,00</font><br>
+						<font id="consumoInicial" class="fontEnergia" size="5" style="position: absolute; z-index: 10;">0,00</font><br>
+						<font id="economiaTotal" class="fontEnergia" size="5" style="position: absolute; z-index: 10;">0,00</font></b>
+						<img id="adesivo" alt="#" src="/assets/adesivo.png" style="position: absolute; z-index: 9;"/>
+					</div>
+				</div>
+				<img id="fundoJogo" class="jogoFundo" alt="#" usemap="#telaTitulo" src="/assets/titulo.jpeg"/>
 			</div>
-			
-			<b><font id="hudTemp" size="5">
-				ENERGIA ECONOMIZADA:
-			</font></b>
 				
 				<map id="telaTitulo">
-					<area shape="rect" coords="0,0,1000,650" alt="Começar" onclick="javascript:mudarTela(1)">
+					<area shape="rect" coords="0,0,1000,500" alt="#" onmousedown="javascript:mudarTela(1)">
 				</map>
 					
 				<map id="mapaCozinha">
-					<area shape="rect" coords="50, 165, 235, 515" alt="Geladeira" onclick="javascript:objetoClicado(0)">
-					<area shape="rect" coords="242, 250, 360, 410" alt="Microondas" onclick="javascript:objetoClicado(1)">
-					<area shape="rect" coords="365, 292, 500, 500" alt="Fogão" onclick="javascript:objetoClicado(2)">
-					<area shape="rect" coords="764, 368, 935, 645" alt="Lava-louças" onclick="javascript:objetoClicado(3)">
+					<area shape="rect" coords="50, 165, 235, 515" alt="#" onmousedown="javascript:objetoClicado(0)">
+					<area shape="rect" coords="242, 250, 360, 410" alt="#" onmousedown="javascript:objetoClicado(1)">
+					<area shape="rect" coords="365, 292, 500, 500" alt="#" onmousedown="javascript:objetoClicado(2)">
+					<area shape="rect" coords="764, 368, 935, 645" alt="#" onmousedown="javascript:objetoClicado(3)">
+					
+					<area shape="rect" coords="0, 0, 1000, 500" alt="#">
 				</map>
 		</div>
 		
-		<div class="headerFooter" style="margin-bottom: 22px;"> <!-- Footer -->
-			<hr style="width: 50%; margin-bottom: 22px; border: 2px solid #005208;">
+		<div class="headerFooter" style="margin-bottom: 1%;"> <!-- Footer -->
 			<b><font size="5">
-				<font size="4">"GREENHOUSE" DO GRUPO 1 DA TURMA 3BINF.<br>COLÉGIO PRIMEIRO DE MAIO.
+				<font size="4">FEITO PELO GRUPO 1 DA TURMA 3BINF,<br>COLÉGIO PRIMEIRO DE MAIO
 				<br><img src="/assets/CPM_LOGO.png" style="width: 5%; margin-top: 6px; -webkit-filter: drop-shadow(0 4px 2px rgba(0, 82, 8, 0.5)); filter: drop-shadow(0 4px 2px rgba(0, 82, 8, 0.5));"></font>
 			</font></b>
 		</div>
