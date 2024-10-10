@@ -25,21 +25,18 @@ var jogadorProgresso = [cozinhaProgresso];
 
 function mudarTela(mapa){
 	fundoJogo.setAttribute('usemap', comodoMapas[mapa]);
-	console.log(fundoJogo);
 	fundoJogo.src = comodoImagens[mapa];
 	
 	jogadorComodo = mapa;
-	console.log(jogadorComodo);
 	comodoAtual = comodos[mapa];
 	
-	if(mapa != 0){ interfaceHUD.style.visibility = "visible"; }
+	//if(mapa != 0){ interfaceHUD.style.visibility = "visible"; }
 }
 
 function objetoClicado(objetoNome){
 	var objetoAtual = cozinhaObjetos[objetoNome];
 	
 	if(!objetoAtual[3]){
-		console.log("Não.");
 		return;
 	} else {
 		objetoAtual[3] = false;
@@ -50,7 +47,16 @@ function objetoClicado(objetoNome){
 	}
 }
 
-let eventoToque = 'ontouchstart' in window ? 'touchstart' : 'click';
+let eventoToque = 'ontouchstart' in window ? 'touch' : 'clique';
+
+function cliqueObjeto(event){
+	event.preventDefault();
+	objetoClicado(event)
+}
+
+document.querySelectorAll('area#objeto').forEach(area => {
+	area.addEventListener('click', cliqueObjeto(this.name));
+});
 
 if(screen.availHeight > screen.availWidth){
 	//
