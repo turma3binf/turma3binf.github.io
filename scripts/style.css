@@ -8,8 +8,8 @@ body {
 
 	width: 100%;
 	margin: auto;
+	padding: auto;
 	
-	min-height: 100vh;
 	min-height: -webkit-fill-available;
 }
 
@@ -18,12 +18,13 @@ font {
 	font-weight: 600;
 	font-style: normal;
 	color: #413600;
-	text-shadow: 0 2px 3px rgba(65, 54, 0, 0.5);
+	text-shadow: 0 2px 0 #8D9059;
 }
 
 .fontEnergia {
 	color: #000000;
-	text-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
+	text-shadow: 0 2px 0 rgba(0, 0, 0, 0.5);
+	
 	position: absolute;
 	z-index: 10;
 }
@@ -35,9 +36,8 @@ font {
 
 .tituloMargin {
 	font-family: 'Margin', serif;
-	font-weight: 500;
-	font-size: 90px;
-	text-shadow: 0 4px 3px rgba(0, 82, 8, 0.5);
+	font-weight: 600;
+	text-shadow: 0 2px 0 #7EA264;
 	color: #005208;
 }
 
@@ -60,12 +60,26 @@ font {
 }
 
 .interfaceJogo {
-	display: inline-block;
-	position: relative;
+	left: 1%;
+	bottom: 1%;
+}
+
+.adesivo {
+	width: 250px;
+	height: auto;
 }
 
 @media screen and (max-width: 1000px) {
 	.jogoFundo {
 		width: 100%;
+		height: auto;
+	}
+	.adesivo {
+		width: 100%;
+		height: auto;
+	}
+	.interfaceJogo {
+		left: 0%;
+		bottom: 0%;
 	}
 }

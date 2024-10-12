@@ -34,7 +34,7 @@
 		
 		<!-- Others -->
 		<meta charset="UTF-8"/>
-		<meta name="keywords" content="ecohouse, projeto ecohouse, eco, house, colegio primeiro de maio, colegio 1 de maio, colegio 1º de maio, 1 de maio, primeiro de maio, 1° de maio, ecohouse colegio primeiro de maio, ecohouse 1 de maio, 3binf, turma 3binf, 3-binf">
+		<meta name="keywords" content="ecohouse, 3binf, colegio primeiro de maio, 1 de maio, primeiro de maio, projeto ecohouse">
 		<meta name="viewport" content="initial-scale=1.0, width=device-width"/>
 
 		
@@ -45,17 +45,18 @@
 	</head>
 	
 	<body> <!-- CORPO DO SITE -->
+		<div id="interfaceJogo" class="interfaceJogo" style="position: fixed; visibility: hidden;">
+			<div>	
+				<b><font id="consumoAtual" class="fontEnergia" size="5" style="right: 0; bottom: 48px;">0,00</font><br>
+				<font id="economiaTotal" class="fontEnergia" size="5" style="right: 0; bottom: 28px;">0,00</font><br>
+				<font id="consumoInicial" class="fontEnergia" size="5" style="right: 0; bottom: 8px;">0,00</font></b>
+				<img class="adesivo" alt="#" src="/assets/interface/adesivo.png" style="z-index: 9;"/>
+			</div>
+		</div>
+	
 		<center>
-		<div class="mainJogo" style="disableSelect"> <!-- Jogo -->
-			<div id="telaJogo" style="position: relative; margin-top: 2.5%;">
-				<div id="interfaceJogo" style="position: absolute; visibility: hidden;">
-					<div class="interfaceJogo">
-						<b><font id="consumoAtual" class="fontEnergia" size="5" style="position: absolute; z-index: 10;">0,00</font><br>
-						<font id="consumoInicial" class="fontEnergia" size="5" style="position: absolute; z-index: 10;">0,00</font><br>
-						<font id="economiaTotal" class="fontEnergia" size="5" style="position: absolute; z-index: 10;">0,00</font></b>
-						<img id="adesivo" alt="#" src="/assets/adesivo.png" style="position: absolute; z-index: 9;"/>
-					</div>
-				</div>
+		<div class="mainJogo" style="disableSelect position: relative;"> <!-- Jogo -->
+			<div id="telaJogo" style="margin-top: 2%;">
 				<img id="fundoJogo" class="jogoFundo" alt="#" usemap="#telaTitulo" src="/assets/titulo.jpeg"/>
 			</div>
 				
@@ -64,19 +65,36 @@
 				</map>
 					
 				<map id="mapaCozinha">
-					<area shape="rect" coords="50, 165, 235, 515" alt="#" onmousedown="javascript:objetoClicado(0)" name="0" id="objeto">
-					<area shape="rect" coords="242, 250, 360, 410" alt="#" onmousedown="javascript:objetoClicado(1)" name="1" id="objeto">
-					<area shape="rect" coords="365, 292, 500, 500" alt="#" onmousedown="javascript:objetoClicado(2)" name="2" id="objeto">
-					<area shape="rect" coords="764, 368, 935, 645" alt="#" onmousedown="javascript:objetoClicado(3)" name="3" id="objeto">
+					<area shape="rect" coords="39,21,280,458" alt="#" onmousedown="javascript:objetoClicado(0)" id="objeto">
+					<area shape="rect" coords="300,27,522,152" alt="#" onmousedown="javascript:objetoClicado(1)" id="objeto">
+					<area shape="rect" coords="413,427,682,185" alt="#" onmousedown="javascript:objetoClicado(2)" id="objeto">
+					<area shape="rect" coords="640,130,878,0" alt="#" onmousedown="javascript:objetoClicado(3)" id="objeto">
+					<area shape="rect" coords="792,224,899,412" alt="#" onmousedown="javascript:objetoClicado(4)" id="objeto">
 					
-					<area shape="rect" coords="0, 0, 1000, 500" alt="#">
+					<area shape="rect" coords="0,0,1000,500" alt="#">
+				</map>
+				
+				<map id="mapaSala">
+					<area shape="rect" coords="0,0,1000,500" alt="#" onmousedown="javascript:objetoClicado(0)" id="titulo">
+				</map>
+				
+				<map id="mapaQuarto">
+					<area shape="rect" coords="0,0,1000,500" alt="#" onmousedown="javascript:objetoClicado(0)" id="titulo">
+				</map>
+				
+				<map id="mapaBanheiro">
+					<area shape="rect" coords="0,0,1000,500" alt="#" onmousedown="javascript:objetoClicado(0)" id="titulo">
+				</map>
+				
+				<map id="telaFinal">
+					<area shape="rect" coords="0,0,1000,500" alt="#" onmousedown="window.location.reload()" id="final">
 				</map>
 		</div>
 		
-		<div class="headerFooter" style="margin-bottom: 1%;"> <!-- Footer -->
+		<div class="headerFooter padding: auto;"> <!-- Footer -->
 			<b><font size="5">
 				<font size="4">FEITO PELO GRUPO 1 DA TURMA 3BINF,<br>COLÉGIO PRIMEIRO DE MAIO
-				<br><img src="/assets/CPM_LOGO.png" style="width: 5%; margin-top: 6px; -webkit-filter: drop-shadow(0 4px 2px rgba(0, 82, 8, 0.5)); filter: drop-shadow(0 4px 2px rgba(0, 82, 8, 0.5));"></font>
+				<br><img src="/assets/interface/CPM_LOGO.png" style="width: 5%; margin-top: 6px; -webkit-filter: drop-shadow(0 2px 0 rgba(126, 162, 100, 1)); filter: drop-shadow(0 2px 0 rgba(126, 162, 100, 1));"></font>
 			</font></b>
 		</div>
 		</center>
