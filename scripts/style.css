@@ -1,0 +1,71 @@
+body {
+	background-image: url("/assets/background.jpeg");
+	background-color: #c0cc94;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+
+	width: 100%;
+	margin: auto;
+	
+	min-height: 100vh;
+	min-height: -webkit-fill-available;
+}
+
+font {
+	font-family: "Bree Serif", serif;
+	font-weight: 600;
+	font-style: normal;
+	color: #413600;
+	text-shadow: 0 2px 3px rgba(65, 54, 0, 0.5);
+}
+
+.fontEnergia {
+	color: #000000;
+	text-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
+	position: absolute;
+	z-index: 10;
+}
+
+@font-face {
+    font-family: "Margin";
+    src: url("/assets/Margin.woff2");
+}
+
+.tituloMargin {
+	font-family: 'Margin', serif;
+	font-weight: 500;
+	font-size: 90px;
+	text-shadow: 0 4px 3px rgba(0, 82, 8, 0.5);
+	color: #005208;
+}
+
+.disableSelect {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.headerFooter {
+	width: 100%;
+	overflow-wrap: break-word;
+}
+
+.jogoFundo {
+	width: 1000px;
+	height: auto;
+}
+
+.interfaceJogo {
+	display: inline-block;
+	position: relative;
+}
+
+@media screen and (max-width: 1000px) {
+	.jogoFundo {
+		width: 100%;
+	}
+}
