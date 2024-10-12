@@ -47,13 +47,14 @@
 	<body> <!-- CORPO DO SITE -->
 		<div id="interfaceJogo" class="interfaceJogo" style="position: fixed; visibility: hidden;">
 			<div>	
-				<b><font id="consumoAtual" class="fontEnergia" size="5" style="right: 0; bottom: 48px;">0,00</font><br>
-				<font id="economiaTotal" class="fontEnergia" size="5" style="right: 0; bottom: 28px;">0,00</font><br>
-				<font id="consumoInicial" class="fontEnergia" size="5" style="right: 0; bottom: 8px;">0,00</font></b>
+				<b><font id="consumoAtual" class="fontEnergia" style="bottom: 48px;">0,00</font><br>
+				<font id="economiaTotal" class="fontEnergia" style="bottom: 28px;">0,00</font><br>
+				<font id="consumoInicial" class="fontEnergia" style="bottom: 8px;">0,00</font></b>
 				<img class="adesivo" alt="#" src="/assets/interface/adesivo.png" style="z-index: 9;"/>
 			</div>
 		</div>
-	
+		
+		<div id="tela" style="width: 100%; height: 100%;">
 		<center>
 		<div class="mainJogo" style="disableSelect position: relative;"> <!-- Jogo -->
 			<div id="telaJogo" style="margin-top: 2%;">
@@ -98,6 +99,7 @@
 			</font></b>
 		</div>
 		</center>
+		</div>
 		
 	<!-- JAVASCRIPT -->
 	<script type="text/javascript" src="/scripts/script.js"></script>

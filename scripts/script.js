@@ -86,8 +86,57 @@ function proximoComodo(ultimoComodo, proximoComodo){
 	mudarTela(proximoComodo);
 }
 
+// PHONES
+
 let eventoToque = 'ontouchstart' in window ? 'touch' : 'clique';
 
-if(screen.availHeight > screen.availWidth){
-	//
-}
+window.addEventListener("DOMContentLoaded", () => {
+  const displayOrientation = () => {
+    const screenOrientation = screen.orientation.type;
+    if (screenOrientation === "landscape-primary" || screenOrientation === "landscape-secondary" || screenOrientation === undefined) {
+		console.log("landscape");
+    } else if (screenOrientation === "portrait-secondary" || screenOrientation === "portrait-primary") {
+		console.log("portrait");
+    }
+  };
+
+  if (screen && screen.orientation !== null) {
+    try {
+      window.screen.orientation.onchange = displayOrientation;
+      displayOrientation();
+    }
+    catch (e) { console.log(e.message); }
+  }
+});
+
+window.addEventListener("orientationchange", function() {
+    const displayOrientation = () => {
+		const screenOrientation = screen.orientation.type;
+		if (screenOrientation === "landscape-primary" || screenOrientation === "landscape-secondary" || screenOrientation === undefined) {
+			alert("landscape OUTROS");
+		} else if (screenOrientation === "portrait-secondary" || screenOrientation === "portrait-primary") {
+			alert("portrait OUTROS");
+		}
+	};
+	
+	if (screen && screen.orientation !== null) {
+		try {
+		  window.screen.orientation.onchange = displayOrientation;
+		  displayOrientation();
+		}
+		catch (e) { console.log(e.message); }
+	  }
+});
+
+// SAFARI
+
+window.addEventListener("orientationchange", function() {
+	if(window.orientation != null){
+		if ( window.orientation == 0 || window.orientation == 180) {
+			alert("portrait IPHONE");
+		} else {
+			alert("landscape IPHONE");
+			
+		}
+	}
+}, false);
