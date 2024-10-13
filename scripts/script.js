@@ -59,7 +59,7 @@ var jogadorProgresso = [cozinhaProgresso, salaProgresso, quartoProgresso, banhei
 var jogadorEnergiaFaltando = [cozinhaFaltando, salaFaltando, quartoFaltando, banheiroFaltando];
 
 function reescalarMapa(){
-	var mapaElemento = document.getElementById(comodoMapas[jogadorComodo].replace("#", ""));
+	var mapaElemento = document.getElementByName(comodoMapas[jogadorComodo].replace("#", ""));
 	var escala = divJogo.clientWidth / fundoJogo.naturalWidth;
 	var areaElemento = mapaElemento.querySelectorAll(`area`);
 
