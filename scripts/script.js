@@ -65,18 +65,18 @@ function reescalarMapa(){
 
 	console.log(mapaElemento);
 
-    areaElemento.forEach(area => {
-        const coords = area.getAttribute('coords').split(',').map(Number);
-        console.log(`Coordenadas Originais: ${coords}`);
-
-        if (coords.length === 4) { // Verifique se temos 4 coordenadas
-            const newCoords = coords.map(coord => Math.round(coord * escala));
-            console.log(`Novas Coordenadas: ${newCoords}`);
-            area.setAttribute('coords', newCoords.join(','));
-        } else {
-            console.error('Formato de coordenadas inválido. Esperado: left,top,right,bottom');
-        }
-    });
+    //areaElemento.forEach(area => {
+     //   const coords = area.getAttribute('coords').split(',').map(Number);
+    //    console.log(`Coordenadas Originais: ${coords}`);
+	//
+       // if (coords.length === 4) { // Verifique se temos 4 coordenadas
+     //       const newCoords = coords.map(coord => Math.round(coord * escala));
+   //         console.log(`Novas Coordenadas: ${newCoords}`);
+    //        area.setAttribute('coords', newCoords.join(','));
+      //  } else {
+        //    console.error('Formato de coordenadas inválido. Esperado: left,top,right,bottom');
+      //  }
+    //});
 }
 
 function mudarTela(mapa){
