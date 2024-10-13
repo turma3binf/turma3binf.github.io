@@ -73,6 +73,14 @@ font {
 	height: auto;
 }
 
+.tela {
+	position: absolute;
+	z-index: 2;
+	
+	left: 50%;
+	transform: translateX(-50%);
+}
+
 /* PHONE SCREENS */
 
 @media screen and (max-width: 1000px) {
@@ -95,5 +103,27 @@ font {
 	.fontEnergia {
 		right: 20%;
 		font-size: medium ;
+	}
+}
+
+/* PHONE ORIENTATION */
+@media screen and (orientation: landscape) {
+	.tela {
+		position: absolute;
+		z-index: 2;
+		
+		left: 50%;
+		transform: translate(-50%, 0);
+	}
+}
+
+@media screen and (orientation: portrait) {
+	.tela {
+		position: absolute;
+		z-index: 2;
+		
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 	}
 }

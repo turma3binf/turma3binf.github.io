@@ -1,9 +1,6 @@
 const divJogo = document.getElementById("telaJogo");
 const fundoJogo = document.getElementById("fundoJogo");
 
-const fora = document.getElementById("fora");
-const tela = document.getElementById("tela");
-
 //comodos
 var comodos = ["Titulo", "Cozinha", "Sala", "Quarto", "Banheiro", "Final"];
 var comodoMapas = ["#telaTitulo", "#mapaCozinha", "#mapaSala", "#mapaQuarto", "#mapaBanheiro", "#telaFinal"];
@@ -127,55 +124,3 @@ function proximoComodo(ultimoComodo, proximoComodo){
 // PHONES
 
 let eventoToque = 'ontouchstart' in window ? 'touch' : 'clique';
-
-window.addEventListener("DOMContentLoaded", () => {
-	reescalarMapa();
-	
-	const displayOrientation = () => {
-		const screenOrientation = screen.orientation.type;
-		if (screenOrientation === "landscape-primary" || screenOrientation === "landscape-secondary" || screenOrientation === undefined) {
-			tela.style.top = "0";
-			tela.style.transform = "translate(-50%, 0)";
-		} else if (screenOrientation === "portrait-secondary" || screenOrientation === "portrait-primary") {
-			tela.style.top = "50%";
-			tela.style.transform = "translate(-50%, -50%)";
-		}
-	};
-
-	if (screen && screen.orientation !== null) {
-		try {
-			window.screen.orientation.onchange = displayOrientation;
-			displayOrientation();
-		}
-		catch (e) { console.log(e.message); }
-	}
-});
-
-window.addEventListener("resize", function() {
-	const displayOrientation = () => {
-		const screenOrientation = screen.orientation.type;
-		if (screenOrientation === "landscape-primary" || screenOrientation === "landscape-secondary" || screenOrientation === undefined) {
-			tela.style.top = "0";
-			tela.style.transform = "translate(-50%, 0)";
-		} else if (screenOrientation === "portrait-secondary" || screenOrientation === "portrait-primary") {
-			tela.style.top = "50%";
-			tela.style.transform = "translate(-50%, -50%)";
-		}
-	};
-	
-	if (screen && screen.orientation !== null) {
-		try {
-		  window.screen.orientation.onchange = displayOrientation;
-		  displayOrientation();
-		}
-		catch (e) { console.log(e.message); }
-	} else if(screen && screen.orientation == null){ //SAFARI
-		if ( window.orientation == 0 || window.orientation == 180) {
-			tela.style.top = "0";
-			tela.style.transform = "translate(-50%, 0)";
-		} else {
-			tela.style.top = "50%";
-			tela.style.transform = "translate(-50%, -50%)";
-		}
-	}
-});
