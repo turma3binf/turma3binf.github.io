@@ -45,7 +45,7 @@
 	</head>
 	
 	<body> <!-- CORPO DO SITE -->
-		<div id="interfaceJogo" class="interfaceJogo" style="position: fixed; visibility: hidden;">
+		<div id="interfaceJogo" class="interfaceJogo" style="position: fixed; visibility: hidden; z-index: 8;">
 			<div>	
 				<b><font id="consumoAtual" class="fontEnergia" style="bottom: 48px;">0,00</font><br>
 				<font id="economiaTotal" class="fontEnergia" style="bottom: 28px;">0,00</font><br>
@@ -54,51 +54,55 @@
 			</div>
 		</div>
 		
-		<div id="tela" style="width: 100%; height: 100%;">
+		<div id="fora" style="width: 100vw; height: 100vh; margin: 0;">
+		<div id="tela" style="position: absolute; z-index: 2; left: 50%; transform: translateX(-50%);">
+		
 		<center>
-		<div class="mainJogo" style="disableSelect position: relative;"> <!-- Jogo -->
+		<div class="mainJogo" style="disableSelect"> <!-- Jogo -->
 			<div id="telaJogo" style="margin-top: 2%;">
-				<img id="fundoJogo" class="jogoFundo" alt="#" usemap="#telaTitulo" src="/assets/titulo.jpeg"/>
+				<img id="fundoJogo" class="jogoFundo" alt="Jogo" usemap="#telaTitulo" src="/assets/titulo.jpeg"/>
 			</div>
 				
 				<map id="telaTitulo">
-					<area shape="rect" coords="0,0,1000,500" alt="#" onmousedown="javascript:mudarTela(1)" id="titulo">
+					<area shape="rect" coords="0,0,1000,500" alt="Tela de Título" href="javascript:void(0)" onclick="javascript:mudarTela(1)" id="titulo">
 				</map>
 					
 				<map id="mapaCozinha">
-					<area shape="rect" coords="39,21,280,458" alt="#" onmousedown="javascript:objetoClicado(0)" id="objeto">
-					<area shape="rect" coords="300,27,522,152" alt="#" onmousedown="javascript:objetoClicado(1)" id="objeto">
-					<area shape="rect" coords="413,427,682,185" alt="#" onmousedown="javascript:objetoClicado(2)" id="objeto">
-					<area shape="rect" coords="640,130,878,0" alt="#" onmousedown="javascript:objetoClicado(3)" id="objeto">
-					<area shape="rect" coords="792,224,899,412" alt="#" onmousedown="javascript:objetoClicado(4)" id="objeto">
+					<area shape="rect" coords="39,21,280,458" alt="Geladeira" href="javascript:void(0)" onclick="javascript:objetoClicado(0)" id="objeto">
+					<area shape="rect" coords="300,27,522,152" alt="Microondas" href="javascript:void(0)" onclick="javascript:objetoClicado(1)" id="objeto">
+					<area shape="rect" coords="413,427,682,185" alt="Fogão" href="javascript:void(0)" onclick="javascript:objetoClicado(2)" id="objeto">
+					<area shape="rect" coords="640,130,878,0" alt="Lâmpada" href="javascript:void(0)" onclick="javascript:objetoClicado(3)" id="objeto">
+					<area shape="rect" coords="792,224,899,412" alt="Liquidificador" href="javascript:void(0)" onclick="javascript:objetoClicado(4)" id="objeto">
 					
 					<area shape="rect" coords="0,0,1000,500" alt="#">
 				</map>
 				
 				<map id="mapaSala">
-					<area shape="rect" coords="0,0,1000,500" alt="#" onmousedown="javascript:objetoClicado(0)" id="titulo">
+					<area shape="rect" coords="0,0,1000,500" alt="Televisão" href="javascript:void(0)" onclick="javascript:objetoClicado(0)" id="titulo">
 				</map>
 				
 				<map id="mapaQuarto">
-					<area shape="rect" coords="0,0,1000,500" alt="#" onmousedown="javascript:objetoClicado(0)" id="titulo">
+					<area shape="rect" coords="0,0,1000,500" alt="Ar-condicionado" href="javascript:void(0)" onclick="javascript:objetoClicado(0)" id="titulo">
 				</map>
 				
 				<map id="mapaBanheiro">
-					<area shape="rect" coords="0,0,1000,500" alt="#" onmousedown="javascript:objetoClicado(0)" id="titulo">
+					<area shape="rect" coords="0,0,1000,500" alt="Privada Inteligente" href="javascript:void(0)" onclick="javascript:objetoClicado(0)" id="titulo">
 				</map>
 				
 				<map id="telaFinal">
-					<area shape="rect" coords="0,0,1000,500" alt="#" onmousedown="window.location.reload()" id="final">
+					<area shape="rect" coords="0,0,1000,500" alt="Game Over" href="javascript:void(0)" onclick="window.location.reload()" id="final">
 				</map>
 		</div>
 		
 		<div class="headerFooter padding: auto;"> <!-- Footer -->
 			<b><font size="5">
 				<font size="4">FEITO PELO GRUPO 1 DA TURMA 3BINF,<br>COLÉGIO PRIMEIRO DE MAIO
-				<br><img src="/assets/interface/CPM_LOGO.png" style="width: 5%; margin-top: 6px; -webkit-filter: drop-shadow(0 2px 0 rgba(126, 162, 100, 1)); filter: drop-shadow(0 2px 0 rgba(126, 162, 100, 1));"></font>
+				<br><img src="/assets/interface/CPM_LOGO.png" style="width: 5%; min-width: 40px; margin-top: 6px; -webkit-filter: drop-shadow(0 2px 0 rgba(126, 162, 100, 1)); filter: drop-shadow(0 2px 0 rgba(126, 162, 100, 1));"></font>
 			</font></b>
 		</div>
 		</center>
+		
+		</div>
 		</div>
 		
 	<!-- JAVASCRIPT -->

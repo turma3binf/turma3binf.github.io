@@ -7,8 +7,9 @@ body {
 	background-position: center;
 
 	width: 100%;
-	margin: auto;
-	padding: auto;
+	
+	margin: 0;
+	padding: 0;
 	
 	min-height: -webkit-fill-available;
 }
@@ -59,7 +60,7 @@ font {
 
 .jogoFundo {
 	width: 1000px;
-	height: auto;
+	z-index: 1;
 }
 
 .interfaceJogo {
@@ -76,23 +77,20 @@ font {
 
 @media screen and (max-width: 1000px) {
 	.jogoFundo {
-		width: 100%;
-		height: auto;
+		width: 100vw;
 	}
 	.adesivo {
 		width: 100%;
-		height: auto;
 	}
 	.interfaceJogo {
-		left: 0%;
-		bottom: 0%;
+		left: 0;
+		bottom: 0;
 	}
 }
 
 @media screen and (max-width: 850px) {
 	.adesivo {
 		width: 80%;
-		height: auto;
 	}
 	.fontEnergia {
 		right: 20%;

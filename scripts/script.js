@@ -1,6 +1,9 @@
 const divJogo = document.getElementById("telaJogo");
 const fundoJogo = document.getElementById("fundoJogo");
 
+const fora = document.getElementById("fora");
+const tela = document.getElementById("tela");
+
 //comodos
 var comodos = ["Titulo", "Cozinha", "Sala", "Quarto", "Banheiro", "Final"];
 var comodoMapas = ["#telaTitulo", "#mapaCozinha", "#mapaSala", "#mapaQuarto", "#mapaBanheiro", "#telaFinal"];
@@ -18,22 +21,34 @@ const economiaTotal = document.getElementById("economiaTotal");
 
 //quartos
 const cozinhaMapa = document.getElementsByName("mapaCozinha");
-var cozinhaObjetos = [["geladeira", "Geladeira", 25, true], ["microondas", "Micro-ondas", 75, true], ["fogao", "Fogão", 150, true], ["lampada", "Lâmpada", 10, true], ["liquidificador", "Liquidificador", 50, true]];
+var cozinhaObjetos = [
+	["geladeira", "Geladeira", 25, true],
+	["microondas", "Micro-ondas", 75, true],
+	["fogao", "Fogão", 150, true],
+	["lampada", "Lâmpada", 10, true],
+	["liquidificador", "Liquidificador", 50, true]
+];
 var cozinhaProgresso = 0;
 var cozinhaFaltando = 310;
 
 const salaMapa = document.getElementsByName("mapaSala");
-var salaObjetos = [["televisao", "Televisão", 100, true]];
+var salaObjetos = [
+	["televisao", "Televisão", 100, true]
+];
 var salaProgresso = 0;
 var salaFaltando = 100;
 
 const quartoMapa = document.getElementsByName("mapaQuarto");
-var quartoObjetos = [["ar", "Ar-condicionado", 100, true]];
+var quartoObjetos = [
+	["ar", "Ar-condicionado", 100, true]
+];
 var quartoProgresso = 0;
 var quartoFaltando = 100;
 
 const banheiroMapa = document.getElementsByName("mapaBanheiro");
-var banheiroObjetos = [["privada", "Privada Inteligente", 100, true]];
+var banheiroObjetos = [
+	["privada", "Privada Inteligente", 100, true]
+];
 var banheiroProgresso = 0;
 var banheiroFaltando = 100;
 
@@ -42,6 +57,27 @@ var comodoObjetos = [cozinhaObjetos, salaObjetos, quartoObjetos, banheiroObjetos
 var jogadorComodo = 0;
 var jogadorProgresso = [cozinhaProgresso, salaProgresso, quartoProgresso, banheiroProgresso];
 var jogadorEnergiaFaltando = [cozinhaFaltando, salaFaltando, quartoFaltando, banheiroFaltando];
+
+function reescalarMapa(){
+	var mapaElemento = document.getElementById(comodoMapas[jogadorComodo].replace("#", ""));
+	var escala = divJogo.clientWidth / fundoJogo.naturalWidth;
+	var areaElemento = mapaElemento.querySelectorAll(`area`);
+
+	console.log(mapaElemento);
+
+    areaElemento.forEach(area => {
+        const coords = area.getAttribute('coords').split(',').map(Number);
+        console.log(`Coordenadas Originais: ${coords}`);
+
+        if (coords.length === 4) { // Verifique se temos 4 coordenadas
+            const newCoords = coords.map(coord => Math.round(coord * escala));
+            console.log(`Novas Coordenadas: ${newCoords}`);
+            area.setAttribute('coords', newCoords.join(','));
+        } else {
+            console.error('Formato de coordenadas inválido. Esperado: left,top,right,bottom');
+        }
+    });
+}
 
 function mudarTela(mapa){
 	fundoJogo.src = comodoImagens[mapa];
@@ -56,6 +92,8 @@ function mudarTela(mapa){
 	consumoInicial.innerHTML = comodoConsumoInicial[mapa - 1];
 	
 	fundoJogo.setAttribute('usemap', comodoMapas[mapa]);
+	
+	reescalarMapa();
 }
 
 function objetoClicado(objetoNome){
@@ -91,31 +129,37 @@ function proximoComodo(ultimoComodo, proximoComodo){
 let eventoToque = 'ontouchstart' in window ? 'touch' : 'clique';
 
 window.addEventListener("DOMContentLoaded", () => {
-  const displayOrientation = () => {
-    const screenOrientation = screen.orientation.type;
-    if (screenOrientation === "landscape-primary" || screenOrientation === "landscape-secondary" || screenOrientation === undefined) {
-		console.log("landscape");
-    } else if (screenOrientation === "portrait-secondary" || screenOrientation === "portrait-primary") {
-		console.log("portrait");
-    }
-  };
-
-  if (screen && screen.orientation !== null) {
-    try {
-      window.screen.orientation.onchange = displayOrientation;
-      displayOrientation();
-    }
-    catch (e) { console.log(e.message); }
-  }
-});
-
-window.addEventListener("orientationchange", function() {
-    const displayOrientation = () => {
+	reescalarMapa();
+	
+	const displayOrientation = () => {
 		const screenOrientation = screen.orientation.type;
 		if (screenOrientation === "landscape-primary" || screenOrientation === "landscape-secondary" || screenOrientation === undefined) {
-			alert("landscape OUTROS");
+			tela.style.top = "0";
+			tela.style.transform = "translate(-50%, 0)";
 		} else if (screenOrientation === "portrait-secondary" || screenOrientation === "portrait-primary") {
-			alert("portrait OUTROS");
+			tela.style.top = "50%";
+			tela.style.transform = "translate(-50%, -50%)";
+		}
+	};
+
+	if (screen && screen.orientation !== null) {
+		try {
+			window.screen.orientation.onchange = displayOrientation;
+			displayOrientation();
+		}
+		catch (e) { console.log(e.message); }
+	}
+});
+
+window.addEventListener("resize", function() {
+	const displayOrientation = () => {
+		const screenOrientation = screen.orientation.type;
+		if (screenOrientation === "landscape-primary" || screenOrientation === "landscape-secondary" || screenOrientation === undefined) {
+			tela.style.top = "0";
+			tela.style.transform = "translate(-50%, 0)";
+		} else if (screenOrientation === "portrait-secondary" || screenOrientation === "portrait-primary") {
+			tela.style.top = "50%";
+			tela.style.transform = "translate(-50%, -50%)";
 		}
 	};
 	
@@ -125,18 +169,13 @@ window.addEventListener("orientationchange", function() {
 		  displayOrientation();
 		}
 		catch (e) { console.log(e.message); }
-	  }
-});
-
-// SAFARI
-
-window.addEventListener("orientationchange", function() {
-	if(window.orientation != null){
+	} else if(screen && screen.orientation == null){ //SAFARI
 		if ( window.orientation == 0 || window.orientation == 180) {
-			alert("portrait IPHONE");
+			tela.style.top = "0";
+			tela.style.transform = "translate(-50%, 0)";
 		} else {
-			alert("landscape IPHONE");
-			
+			tela.style.top = "50%";
+			tela.style.transform = "translate(-50%, -50%)";
 		}
 	}
-}, false);
+});
