@@ -90,7 +90,6 @@ function mudarTela(mapa){
 	
 	fundoJogo.setAttribute('usemap', comodoMapas[mapa]);
 	
-	reescalarMapa();
 	$(document).ready(function () {
         'use strict';
 	 $('img[usemap]').mapster({
@@ -112,6 +111,8 @@ function mudarTela(mapa){
 	       ]
 	
 });})
+	reescalarMapa();
+	
 }
 
 function objetoClicado(objetoNome){
