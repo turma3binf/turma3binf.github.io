@@ -91,6 +91,27 @@ function mudarTela(mapa){
 	fundoJogo.setAttribute('usemap', comodoMapas[mapa]);
 	
 	reescalarMapa();
+	$(document).ready(function () {
+        'use strict';
+	 $('img[usemap]').mapster({
+        mapKey: 'data-key',
+  fillColor: '0096FF',
+  highlight: true,
+  isSelectable: true,
+  isDeselectable: false,
+  stroke: true,
+  strokeWidth: 2, 
+        scaleMap: true,  // Escala o <map> e seus elementos
+	areas: [
+		{key: 'tela', highlight: false, isSelectable: false},
+		{key: 'final', highlight: false, isSelectable:false}
+		
+	       
+	       
+	       
+	       ]
+	
+});})
 }
 
 function objetoClicado(objetoNome){
