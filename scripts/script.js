@@ -4,8 +4,8 @@ const fundoJogo = document.getElementById("fundoJogo");
 //comodos
 var comodos = ["Titulo", "Cozinha", "Sala", "Quarto", "Banheiro", "Final"];
 var comodoMapas = ["#telaTitulo", "#mapaCozinha", "#mapaSala", "#mapaQuarto", "#mapaBanheiro", "#telaFinal"];
-var comodoImagens = ["/assets/titulo.jpeg", "/assets/comodos/cozinha.png", "/assets/comodos/sala.png", "/assets/comodos/quarto.png", "/assets/comodos/banheiro.png", "/assets/final.jpeg"]
-var comodoConsumoInicial = [670, 100, 100, 100];
+var comodoImagens = ["/assets/titulo.jpeg", "/assets/comodos/cozinha1.png", "/assets/comodos/sala1.png", "/assets/comodos/quarto1.png", "/assets/comodos/banheiro1.png", "/assets/final.jpeg"]
+var comodoConsumoInicial = [670, 750, 700, 725];
 var comodoAtual = comodos[0];
 
 //interface
@@ -19,35 +19,55 @@ const economiaTotal = document.getElementById("economiaTotal");
 //quartos
 const cozinhaMapa = document.getElementsByName("mapaCozinha");
 var cozinhaObjetos = [
+	//["geladeira", "Geladeira", 25, true],
+	//["microondas", "Micro-ondas", 75, true],
+	//["fogao", "Fogão", 150, true],
+	//["lampada", "Lâmpada", 10, true],
+	//["liquidificador", "Liquidificador", 50, true]
+	
+	//Template para os valores
 	["geladeira", "Geladeira", 25, true],
 	["microondas", "Micro-ondas", 75, true],
 	["fogao", "Fogão", 150, true],
-	["lampada", "Lâmpada", 10, true],
-	["liquidificador", "Liquidificador", 50, true]
+	["tostadora", "Tostadora", 10, true],
+	["cafeteira", "Cafeteira", 50, true]
 ];
 var cozinhaProgresso = 0;
 var cozinhaFaltando = 310;
 
 const salaMapa = document.getElementsByName("mapaSala");
 var salaObjetos = [
-	["televisao", "Televisão", 100, true]
+	["televisao", "Televisão", 150, true],
+	["telefone", "Telefone", 25, true],
+	["videogame", "Video-game", 100, true],
+	["ventcond", "Vent-cond", 150, true],
+	["luminaria", "Luminária", 25, true]
 ];
 var salaProgresso = 0;
-var salaFaltando = 100;
+var salaFaltando = 450;
 
 const quartoMapa = document.getElementsByName("mapaQuarto");
 var quartoObjetos = [
-	["ar", "Ar-condicionado", 100, true]
+	["pc", "Pc", 100, true],
+	["impressora", "Impressora", 50, true],
+	["alarme", "Alarme", 10, true],
+	["ventilador", "Ventilador", 25, true],
+	["ar", "Ar-condicionado", 150, true]
 ];
 var quartoProgresso = 0;
-var quartoFaltando = 100;
+var quartoFaltando = 335;
 
 const banheiroMapa = document.getElementsByName("mapaBanheiro");
 var banheiroObjetos = [
-	["privada", "Privada Inteligente", 100, true]
+	["notebook", "Notebook", 100, true],
+	["caixasom", "Caixa-som", 25, true],
+	["lavaroupa", "Lava-roupa", 150, true],
+	["chuveiro", "Chuveiro", 125, true],
+	["secador", "Secador", 25, true]
+
 ];
 var banheiroProgresso = 0;
-var banheiroFaltando = 100;
+var banheiroFaltando = 425;
 
 //jogador
 var comodoObjetos = [cozinhaObjetos, salaObjetos, quartoObjetos, banheiroObjetos];
@@ -93,19 +113,49 @@ function mudarTela(mapa){
 	$(document).ready(function () {
         'use strict';
 	 $('img[usemap]').mapster({
-        mapKey: 'data-key',
-  fillColor: '0096FF',
+  mapKey: 'data-key',
+  fillColor: '4F7942',
+  fillOpacity: 0.3,
   highlight: true,
   isSelectable: true,
   isDeselectable: false,
   stroke: true,
+  strokeColor: '228B22',
   strokeWidth: 2, 
-        scaleMap: true,  // Escala o <map> e seus elementos
+  scaleMap: true,  
+	//imagens alternativas para ligar/desligar
+	altImages: {
+ 		altcozinha: 'assets/comodos/cozinha2.png',
+		altsala1: 'assets/comodos/sala2.png',
+		altsala2: 'assets/comodos/sala3.png',
+		altquarto1: 'assets/comodos/quarto2.png',
+		altquarto2: 'assets/comodos/quarto3.png',
+		altbanheiro: 'assets/comodos/banheiro2.png'
+		
+	},
 	areas: [
 		{key: 'tela', highlight: false, isSelectable: false},
-		{key: 'final', highlight: false, isSelectable:false}
-		
-	       
+		{key: 'final', highlight: false, isSelectable:false},
+		{key: 'geladeira', render_select: {stroke: false, fillOpacity: 1, altImageOpacity: 1, altImage: 'altcozinha'}},
+		{key: 'microondas', render_select: {stroke: false, fillOpacity: 1, altImageOpacity: 1, altImage: 'altcozinha'}},
+		{key: 'fogão', render_select: {stroke: false, fillOpacity: 1, altImageOpacity: 1, altImage: 'altcozinha'}},
+		{key: 'tostadora', render_select: {stroke: false, fillOpacity: 1, altImageOpacity: 1, altImage: 'altcozinha'}},
+		{key: 'cafeteira', render_select: {stroke: false, fillOpacity: 1, altImageOpacity: 1, altImage: 'altcozinha'}},
+		{key: 'televisão', render_select: {stroke: false, fillOpacity: 1, altImageOpacity: 1, altImage: 'altsala1'}},
+		{key: 'telefone', render_select: {stroke: false, fillOpacity: 1, altImageOpacity: 1, altImage: 'altsala1'}},
+		{key: 'videogame', render_select: {stroke: false, fillOpacity: 1, altImageOpacity: 1, altImage: 'altsala1'}},
+		{key: 'ventcond', render_select: {stroke: false, fillOpacity: 1, altImageOpacity: 1, altImage: 'altsala1'}},
+		{key: 'luminaria', render_select: {stroke: false, fillOpacity: 1, altImageOpacity: 1, altImage: 'altsala1'}},
+		{key: 'pc', render_select: {stroke: false, fillOpacity: 1, altImageOpacity: 1, altImage: 'altquarto1'}},
+		{key: 'impressora', render_select: {stroke: false, fillOpacity: 1, altImageOpacity: 1, altImage: 'altquarto1'}},
+		{key: 'alarme', render_select: {stroke: false, fillOpacity: 1, altImageOpacity: 1, altImage: 'altquarto1'}},
+		{key: 'ventilador', render_select: {stroke: false, fillOpacity: 1, altImageOpacity: 1, altImage: 'altquarto1'}},
+		{key: 'ar', render_select: {stroke: false, fillOpacity: 1, altImageOpacity: 1, altImage: 'altquarto2'}},
+	        {key: 'notebook', render_select: {stroke: false, fillOpacity: 1, altImageOpacity: 1, altImage: 'altbanheiro'}},
+		{key: 'caixasom', render_select: {stroke: false, fillOpacity: 1, altImageOpacity: 1, altImage: 'altbanheiro'}},
+		{key: 'lavaroupa', render_select: {stroke: false, fillOpacity: 1, altImageOpacity: 1, altImage: 'altbanheiro'}},
+		{key: 'chuveiro', render_select: {stroke: false, fillOpacity: 1, altImageOpacity: 1, altImage: 'altbanheiro'}},
+		{key: 'secador', render_select: {stroke: false, fillOpacity: 1, altImageOpacity: 1, altImage: 'altbanheiro'}}
 	       
 	       
 	       ]
