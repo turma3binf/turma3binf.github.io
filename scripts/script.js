@@ -95,10 +95,10 @@ function finalizarTemporizador() {
 }
 
 // Função para calcular a pontuação baseada no tempo
-function calcularPontuacao(tempoTotal) {
-    var pontuacao = Math.max(1000 - tempoTotal * 10, 0);  // Exemplo: 1000 pontos - 10 pontos por segundo
+function calcularPontuacao() {
+    var pontuacao = Math.max(1000 - jogadorEconomia * 10, 0);  // Exemplo: 1000 pontos - 10 pontos por segundo
 
-	document.getElementById('pontuacaoFinal').innerHTML = pontuacao;
+	document.getElementById('pontuacaoFinal').innerHTML = pontuacao(jogadorEconomia * 30);
 	document.getElementById('energiaFinal').innerHTML = jogadorEconomia;
 }
 
@@ -153,6 +153,7 @@ function mudarTela(mapa){
 		interfaceHUD.style.visibility = "hidden";
 		document.getElementById('btn_voltar').style.visibility = "hidden"; 
 		document.getElementById('btn_proximo').style.visibility = "hidden"; 
+		calcularPontuacao()
 	}
 
 	document.getElementById('consumoQuarto').innerHTML = comodos[jogadorComodo];
