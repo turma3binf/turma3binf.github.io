@@ -80,16 +80,13 @@ var jogadorEconomia = 0;
 
 
 // Função para parar o temporizador e calcular a pontuação
-function finalizarTemporizador() {
-   
-    calcularPontuacao();  // Chama a função de calcular a pontuação
-}
+
 
 // Função para calcular a pontuação baseada no tempo
 function calcularPontuacao() {
-    var pontuacao = Math.max(1000 - jogadorEconomia * 10, 0);  // Exemplo: 1000 pontos - 10 pontos por segundo
+    var pontuacao = jogadorEconomia * 30;  
 
-	document.getElementById('pontuacaoFinal').innerHTML = pontuacao * (jogadorEconomia * 30);
+	document.getElementById('pontuacaoFinal').innerHTML = pontuacao;
 	document.getElementById('energiaFinal').innerHTML = jogadorEconomia;
 }
 
@@ -139,7 +136,7 @@ function mudarTela(mapa){
 	}
 
 	if (mapa == 5) {
-		finalizarTemporizador();  // Finaliza o temporizador ao chegar na tela final
+		calcularPontuacao();
 		document.getElementById('telaFinal').style.visibility = "visible";  // Exibe a tela final
 		interfaceHUD.style.visibility = "hidden";
 		document.getElementById('btn_voltar').style.visibility = "hidden"; 
