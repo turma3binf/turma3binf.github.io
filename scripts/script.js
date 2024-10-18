@@ -77,7 +77,7 @@ var jogadorEnergiaFaltando = [cozinhaFaltando, salaFaltando, quartoFaltando, ban
 var jogadorEconomia = 0;
 
 
-}
+
 
 // Função para parar o temporizador e calcular a pontuação
 function finalizarTemporizador() {
@@ -89,7 +89,7 @@ function finalizarTemporizador() {
 function calcularPontuacao() {
     var pontuacao = Math.max(1000 - jogadorEconomia * 10, 0);  // Exemplo: 1000 pontos - 10 pontos por segundo
 
-	document.getElementById('pontuacaoFinal').innerHTML = pontuacao(jogadorEconomia * 30);
+	document.getElementById('pontuacaoFinal').innerHTML = pontuacao * (jogadorEconomia * 30);
 	document.getElementById('energiaFinal').innerHTML = jogadorEconomia;
 }
 
