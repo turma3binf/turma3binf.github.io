@@ -2,6 +2,12 @@
 <html lang="en" style="<!--cursor: url('/assets/cursor.png'), url('/assets/cursor_32.png'), auto;-->">
 	<head>
 		<title>Ecohouse</title>
+		<!-- Linka a arquivo do 'jQuery' -->
+		<script type="text/javascript" src="jquery-3.7.1.min.js"></script>
+		<!-- Linka para uma CDN 'entrega de conteudo por https', onde temos o elemento promise do ES mais recente -->
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/es6-promise/dist/es6-promise.auto.min.js"></script>
+		<!-- Linka o arquivo 'imagemapster' dentro do seu repositorio -->
+		<script type="text/javascript" src="jquery.imagemapster.min.js"></script>
 		
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="/assets/icon/favicon.ico" type="image/x-icon">
@@ -46,10 +52,10 @@
 	
 	<body> <!-- CORPO DO SITE -->
 		<div id="interfaceJogo" class="interfaceJogo" style="position: fixed; visibility: hidden; z-index: 8;">
-			<div>	
-				<b><font id="consumoAtual" class="fontEnergia" style="bottom: 48px;">0,00</font><br>
-				<font id="economiaTotal" class="fontEnergia" style="bottom: 28px;">0,00</font><br>
-				<font id="consumoInicial" class="fontEnergia" style="bottom: 8px;">0,00</font></b>
+			<div style="text-align: center;">	
+				<b><font id="consumoQuarto" class="tituloMargin" style="position: absolute; z-index: 10; font-size: xxx-large; bottom: 185px; left: 14px;">Cozinha</font>
+				<font id="consumoAtual" class="fontEnergia" style="bottom: 132px; left: 52px;">0,00</font><br>
+				<font id="economiaTotal" class="fontEnergia" style="bottom: 36px; left: 122px;">0</font><br>
 				<img class="adesivo" alt="#" src="/assets/interface/adesivo.png" style="z-index: 9;"/>
 			</div>
 		</div>
@@ -58,47 +64,75 @@
 		<div class="tela">
 		
 		<center>
+		<div class="headerFooter" style="margin-top: 1.5%;"> <!-- Header -->
+			<a href="/calculadora/"><b><font class="tituloMargin" style="font-size: 2.5em; font-weight: 500;">
+				Acesse a nossa CALCULADORA clicando aqui!
+			</font></b></a>
+		</div><br>
+			
 		<div class="mainJogo" style="disableSelect"> <!-- Jogo -->
-			<div id="telaJogo" style="margin-top: 2%;">
-				<img id="fundoJogo" class="jogoFundo" alt="Jogo" usemap="#telaTitulo" src="/assets/titulo.jpeg"/>
+			<div id="telaJogo" style="margin-top: 0.2%;">
+				<img id="fundoJogo" class="jogoFundo disableSelect" alt="Jogo" usemap="#telaTitulo" src="/assets/titulo.jpeg"/>
 			</div>
 				
 				<map name="telaTitulo">
-					<area shape="rect" coords="0,0,1000,500" alt="Tela de Título" href="javascript:void(0)" onclick="javascript:mudarTela(1)" id="titulo">
+					<area shape="rect" data-key="tela" coords="0,0,1000,500" alt="Tela de Título" href="javascript:void(0)" onclick="javascript:mudarTela(1)" id="titulo">
 				</map>
 					
-				<map name="mapaCozinha">
-					<area shape="rect" coords="39,21,280,458" alt="Geladeira" href="javascript:void(0)" onclick="javascript:objetoClicado(0)" id="objeto">
-					<area shape="rect" coords="300,27,522,152" alt="Microondas" href="javascript:void(0)" onclick="javascript:objetoClicado(1)" id="objeto">
-					<area shape="rect" coords="413,427,682,185" alt="Fogão" href="javascript:void(0)" onclick="javascript:objetoClicado(2)" id="objeto">
-					<area shape="rect" coords="640,130,878,0" alt="Lâmpada" href="javascript:void(0)" onclick="javascript:objetoClicado(3)" id="objeto">
-					<area shape="rect" coords="792,224,899,412" alt="Liquidificador" href="javascript:void(0)" onclick="javascript:objetoClicado(4)" id="objeto">
-					
-					<area shape="rect" coords="0,0,1000,500" alt="#">
+				<map name="mapaCozinha">                         
+					<area shape="poly" data-key="geladeira"coords="347,180,350,265,319,282,326,365,199,369,71,425,14,156,174,170,305,169" alt="Geladeira" href="javascript:void(0)" onclick="javascript:objetoClicado(0)" id="objeto">
+					<area shape="poly" data-key="microondas" coords="676,228,675,264,705,275,782,274,786,232" alt="Microondas" href="javascript:void(0)" onclick="javascript:objetoClicado(1)" id="objeto">
+					<area shape="poly" data-key="fogão" coords="473,241,468,279,468,357,602,356,604,276,578,242" alt="Fogão" href="javascript:void(0)" onclick="javascript:objetoClicado(2)" id="objeto">
+					<area shape="poly" data-key="tostadora" coords="624,102,620,153,696,149,701,101" alt="Tostadora" href="javascript:void(0)" onclick="javascript:objetoClicado(3)" id="objeto">
+					<area shape="poly" data-key="cafeteira" coords="349,199,355,270,375,271,389,266,387,198" alt="Cafeteira" href="javascript:void(0)" onclick="javascript:objetoClicado(4)" id="objeto">
 				</map>
 				
-				<map name="mapaSala">
-					<area shape="rect" coords="0,0,1000,500" alt="Televisão" href="javascript:void(0)" onclick="javascript:objetoClicado(0)" id="titulo">
+				<map name="mapaSala">  
+					<area shape="poly" data-key="televisão"coords="398,163,400,261,555,262,555,162" alt="Televisão" href="javascript:void(0)" onclick="javascript:objetoClicado(0)" id="objeto">
+					<area shape="poly" data-key="telefone" coords="668,246,645,273,673,279,690,271,684,259" alt="Telefone" href="javascript:void(0)" onclick="javascript:objetoClicado(1)" id="objeto">
+					<area shape="poly" data-key="videogame" coords="386,212,333,214,322,266,387,266" alt="Video-game" href="javascript:void(0)" onclick="javascript:objetoClicado(2)" id="objeto">
+					<area shape="poly" data-key="ventcond" coords="796,103,702,103,688,285,703,302,771,300" alt="Vent-cond" href="javascript:void(0)" onclick="javascript:objetoClicado(3)" id="objeto">
+					<area shape="poly" data-key="luminaria" coords="235,174,300,174,315,308,316,338,295,350,273,344,263,316" alt="Luminária" href="javascript:void(0)" onclick="javascript:objetoClicado(4)" id="objeto">
 				</map>
 				
 				<map name="mapaQuarto">
-					<area shape="rect" coords="0,0,1000,500" alt="Ar-condicionado" href="javascript:void(0)" onclick="javascript:objetoClicado(0)" id="titulo">
+					<area shape="poly" data-key="pc"coords="95,242,91,326,172,329,299,294,304,229,228,230" alt="Pc" href="javascript:void(0)" onclick="javascript:objetoClicado(0)" id="objeto">
+					<area shape="poly" data-key="impressora" coords="750,263,743,318,873,360,912,338,918,264" alt="Impressora" href="javascript:void(0)" onclick="javascript:objetoClicado(1)" id="objeto">
+					<area shape="poly" data-key="alarme" coords="334,298,334,253,403,253,402,297" alt="Alarme" href="javascript:void(0)" onclick="javascript:objetoClicado(2)" id="objeto">
+					<area shape="poly" data-key="ventilador" coords="600,234,600,287,612,294,664,295,666,233" alt="Ventilador" href="javascript:void(0)" onclick="javascript:objetoClicado(3)" id="objeto">
+					<area shape="poly" data-key="ar" coords="671,125,673,154,683,168,719,178,971,127,976,1,886,3" alt="Ar-condicionado" href="javascript:void(0)" onclick="javascript:objetoClicado(4)" id="objeto">
 				</map>
 				
-				<map name="mapaBanheiro">
-					<area shape="rect" coords="0,0,1000,500" alt="Privada Inteligente" href="javascript:void(0)" onclick="javascript:objetoClicado(0)" id="titulo">
+				<map name="mapaBanheiro">         
+					<area shape="poly" data-key="notebook"coords="339,311,324,305,320,283,283,289,288,314,310,321" alt="Notebook" href="javascript:void(0)" onclick="javascript:objetoClicado(0)" id="objeto">
+					<area shape="poly" data-key="caixasom" coords="436,235,438,207,400,209,399,235" alt="Caixa-som" href="javascript:void(0)" onclick="javascript:objetoClicado(1)" id="objeto">
+					<area shape="poly" data-key="lavaroupa" coords="338,278,348,279,374,282,375,337,350,357,348,303,329,301,320,282" alt="Lava-roupa" href="javascript:void(0)" onclick="javascript:objetoClicado(2)" id="objeto">
+					<area shape="poly" data-key="chuveiro" coords="713,119,663,127,549,155,546,365,687,421,691,328,815,327,828,121" alt="Chuveiro" href="javascript:void(0)" onclick="javascript:objetoClicado(3)" id="objeto">
+					<area shape="poly" data-key="secador" coords="7,224,19,341,66,343,180,320,182,220" alt="Secador" href="javascript:void(0)" onclick="javascript:objetoClicado(4)" id="objeto">
 				</map>
 				
 				<map name="telaFinal">
-					<area shape="rect" coords="0,0,1000,500" alt="Game Over" href="javascript:void(0)" onclick="window.location.reload()" id="final">
+					<area shape="rect" data-key="final" coords="0,0,1000,500" alt="Game Over" href="javascript:void(0)" onclick="window.location.reload()" id="final">
 				</map>
+				
+				<div>
+					<button id="btn_voltar" style="width: 25%; float: left; visibility: hidden;" onclick="proximoComodo('anterior')">VOLTAR</button>
+					<button id="btn_proximo" style="width: 25%; float: right; visibility: hidden;" onclick="proximoComodo('proximo')">PROXIMO</button>
+				</div>
 		</div>
 		
-		<div class="headerFooter padding: auto;"> <!-- Footer -->
+		<div class="headerFooter"> <!-- Footer -->
 			<b><font size="5">
 				<font size="4">FEITO PELO GRUPO 1 DA TURMA 3BINF,<br>COLÉGIO PRIMEIRO DE MAIO
-				<br><img src="/assets/interface/CPM_LOGO.png" style="width: 5%; min-width: 40px; margin-top: 6px; -webkit-filter: drop-shadow(0 2px 0 rgba(126, 162, 100, 1)); filter: drop-shadow(0 2px 0 rgba(126, 162, 100, 1));"></font>
+				<br><img src="/assets/interface/CPM_LOGO.png" style="width: 5%; min-width: 40px; margin-top: 6px; margin-bottom: 1.5%; -webkit-filter: drop-shadow(0 2px 0 rgba(126, 162, 100, 1)); filter: drop-shadow(0 2px 0 rgba(126, 162, 100, 1));"></font>
 			</font></b>
+		</div>
+		
+		<div id="telaFinal" class="interfaceJogo" style="position: fixed; visibility: hidden; z-index: 8;">
+			<div style="text-align: center;">
+				<b><font id="energiaFinal" class="tituloMargin disableSelect" style="font-size: 3em; font-weight: 600; margin-left: 35%; text-align: center; float: left;"></font></b>
+				<b><font id="pontuacaoFinal" class="tituloMargin disableSelect" style="font-size: 3em; font-weight: 600; margin-right: 35%; text-align: center; float: right;"></font></b>
+			</div>
 		</div>
 		</center>
 		

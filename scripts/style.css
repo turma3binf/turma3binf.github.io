@@ -12,6 +12,8 @@ body {
 	padding: 0;
 	
 	min-height: -webkit-fill-available;
+	
+	overflow-x: hidden;
 }
 
 font {
@@ -22,15 +24,19 @@ font {
 	text-shadow: 0 2px 0 #8D9059;
 }
 
+a,
+a:hover {
+	text-decoration: none;
+}
+
 .fontEnergia {
-	color: #000000;
-	text-shadow: 0 2px 0 rgba(0, 0, 0, 0.5);
+	color: #413600;
+	text-shadow: 0 2px 0 #8D9059;
 	
 	position: absolute;
 	z-index: 10;
 	
-	right: 0;
-	font-size: x-large ;
+	font-size: xxx-large ;
 }
 
 @font-face {
@@ -81,6 +87,146 @@ font {
 	transform: translateX(-50%);
 }
 
+h1 {
+	font-family: 'Margin', serif;
+	font-weight: 600;
+	text-shadow: 0 2px 0 #7EA264;
+	color: #005208;
+	font-size: xxx-large;
+    text-align: center;
+}
+
+input,
+option,
+select {
+	font-family: "Bree Serif", serif;
+	font-weight: 700;
+	font-style: normal;
+	color: #000000;
+	text-shadow: 0 2px 0 rgba(0, 0, 0, 0.35);
+}
+
+.container {
+    max-width: 500px;
+	max-height: 500px;
+	
+	height: auto;
+	
+	min-width: 480px;
+	min-height: 480px;
+	
+    margin: 0 auto;
+    background-color: white;
+    padding: 40px;
+	
+	background-image: url("/assets/interface/calculadora.png");
+	background-color: #c0cc94;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	
+	font-family: "Bree Serif", serif;
+	font-weight: 600;
+	font-style: normal;
+	color: #413600;
+	text-shadow: 0 2px 0 #8D9059;
+	
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	
+	overflow-y: auto;
+	overflow-wrap: break-word;
+}
+
+.container {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+.container::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    box-sizing: border-box;
+	
+	font-family: "Bree Serif", serif;
+	font-weight: 600;
+	font-style: normal;
+	color: #fff;
+	text-shadow: 0 2px 0 rgba(255, 255, 255, 0.35);
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.result {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e9ecef;
+	border-radius: 4px;
+    text-align: center;
+}
+
+.list-item {
+    display: flex;
+	overflow-wrap: break-word;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.remove-button {
+    background-color: #dc3545;
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+    width: 150px;
+}
+
+.remove-button:hover {
+    background-color: #c82333;
+}
+
+#telaFinal {
+    position: fixed;
+    top: 71%;
+	width: 100%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
 /* PHONE SCREENS */
 
 @media screen and (max-width: 1000px) {
@@ -126,4 +272,17 @@ font {
 		left: 50%;
 		transform: translate(-50%, -50%);
 	}
+}
+
+.botão {
+	padding: 10px;
+	margin: 5px;
+  	border-radius: 10px;
+	background-color: black;
+	color: white;
+	border: 2px solid blue;
+	text-shadow: 0 0 5px blue, 0 0 5px red, 0 5px 0 yellow;
+	
+
+	
 }

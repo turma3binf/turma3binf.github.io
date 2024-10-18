@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+		<title>Ecohouse</title>
+		<!-- Linka a arquivo do 'jQuery' -->
+		<script type="text/javascript" src="jquery-3.7.1.min.js"></script>
+		<!-- Linka para uma CDN 'entrega de conteudo por https', onde temos o elemento promise do ES mais recente -->
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/es6-promise/dist/es6-promise.auto.min.js"></script>
+		<!-- Linka o arquivo 'imagemapster' dentro do seu repositorio -->
+		<script type="text/javascript" src="jquery.imagemapster.min.js"></script>
+		
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="/assets/icon/favicon.ico" type="image/x-icon">
+		<link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/assets/icon/favicon-16x16.png">
+		<link rel="manifest" href="/assets/icon/manifest.json">
+		
+		<!-- CSS -->
+		<link rel="stylesheet" href="/scripts/style.css">
+		
+		<!-- Social Media Preview: -->
+		<meta property="og:title" content="Ecohouse">
+		<meta property="og:description" content="Projeto Ecohouse da turma 3BINF de 2024 do Colégio 1º de Maio.">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://turma3binf.github.io/">
+		
+		<meta property="og:image" content="https://turma3binf.github.io/assets/midia.jpeg">
+		<meta property="og:image:width" content="1200">
+		<meta property="og:image:height" content="600">
+		<meta name="theme-color" content="#005208">
+		
+		<!-- Twitter Preview: -->
+		<meta property="twitter:title" content="Ecohouse">
+		<meta property="twitter:site" content="Ecohouse">
+		<meta property="twitter:description" content="Projeto Ecohouse da turma 3BINF de 2024 do Colégio 1º de Maio.">
+		<meta property="twitter:card" content="summary_large_image">
+		<meta property="twitter:image:src" content="https://turma3binf.github.io/assets/midia.jpeg">
+		
+		<!-- Others -->
+		<meta charset="UTF-8"/>
+		<meta name="keywords" content="ecohouse, 3binf, colegio primeiro de maio, 1 de maio, primeiro de maio, projeto ecohouse">
+		<meta name="viewport" content="initial-scale=1.0, width=device-width"/>
+
+		
+		<!-- Google Fonts for the new site -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+</head>
+<body>
+<center>
+	<div class="container" style="position: absolute;">
+		<div class="headerFooter" style="margin-top: 2%; margin-bottom: 2%;"> <!-- Header -->
+			<b><font size="6" class="tituloMargin" style="font-weight: 500;">
+				Calculadora de Consumo de Energia
+			</font></b>
+		</div>
+		
+        <div class="input-group">
+            <label for="aparelho" class="tituloMargin" style="font-size: x-large; font-weight: 550;">Selecione o aparelho:</label>
+            <select id="aparelho">
+                <option value="135">ABRIDOR/AFIADOR (135W)</option>
+                <option value="20">AFIADOR DE FACAS (20W)</option>
+                <option value="80"> APARELHO DE SOM 3 EM 1 (80W)</option>
+                <option value="20">APARELHO DE SOM PEQUENO (CO) (20W)</option>
+                <option value="1550">AQUECEDOR DE AMBIENTE (1550W)</option>
+                <option value="100">AQUECEDOR DE MAMADEIRA (100W)</option>
+                <option value="1000">AR-CONDICIONADO 7.500 BTU (1000W)</option>
+                <option value="1350">AR-CONDICIONADO 10.000 BTU (1350W)</option>
+                <option value="1450">AR-CONDICIONADO (CO) 12.000 BTU (1450W)</option>
+                <option value="2000">AR-CONDICIONADO 15.000 BTU (2000W)</option>
+                <option value="2100">AR-CONDICIONADO 18.000 BTU (2100W)</option>
+                <option value="100">ASPIRADOR DE PÓ (100W)</option>
+                <option value="10">BARBEADOR/DEPILADOR/MASSAGEADOR (10W)</option>
+                <option value="120">BATEDEIRA (120W)</option>
+                <option value="1500">BOILER 50 e 60 L (1500W)</option>
+                <option value="2030">BOILER 100 L (2030W)</option>
+                <option value="3000">BOILER 200 a 500 L (3000W)</option>
+                <option value="335">BOMBA D'ÁGUA 1/4 CV (335W)</option>
+                <option value="613">BOMBA D'ÁGUA 1/2 CV (613W)</option>
+                <option value="849">BOMBA D'ÁGUA 3/4 CV (849W)</option>
+                <option value="1051">BOMBA D'ÁGUA 1 CV (1051W)</option>
+                <option value="10">BOMBA AQUÁRIO GRANDE (10W)</option>
+                <option value="5">BOMBA AQUÁRIO PEQUENO (5W)</option>
+                <option value="600"> CAFETEIRA ELÉTRICA (CO) (600W)</option>
+                <option value="3800">CHURRASQUEIRA (3800W)</option>
+                <option value="3500">CHUVEIRO ELÉTRICO (CO) (3500W)</option>
+                <option value="200">CIRCULADOR AR GRANDE (200W)</option>
+                <option value="90">CIRCULADOR AR PEQUENO/MÉDIO (90W)</option>
+                <option value="400"> COMPUTADOR (CO) (400W)</option>
+                <option value="50">IMPRESSORA JATO DE TINTA (CO) (50W)</option>
+                <option value="350"> ESTABILIZADOR (350W)</option>
+                <option value="1140">CORTADOR DE GRAMA GRANDE (1140W)</option>
+                <option value="500">CORTADOR DE GRAMA PEQUENO (500W)</option>
+                <option value="50">ESCOVA DE DENTES ELÉTRICA (50W)</option>
+                <option value="65">ESPREMEDOR DE FRUTAS (65W)</option>
+                <option value="170">EXAUSTOR FOGÃO (170W)</option>
+                <option value="110">EXAUSTOR PAREDE (110W)</option>
+                <option value="220">FACA ELÉTRICA (220W)</option>
+                <option value="1000">FERRO ELÉTRICO AUTOMÁTICO (1000W)</option>
+                <option value="60"> FOGÃO COMUM (CO) (60W)</option>
+                <option value="9120">FOGÃO ELÉTRICO 4 CHAPAS (9120W)</option>
+                <option value="1500">FORNO À RESISTÊNCIA GRANDE (1500W)</option>
+                <option value="800">FORNO À RESISTÊNCIA PEQUENO (800W)</option>
+                <option value="1200"> FORNO MICROONDAS (CO) (1200W)</option>
+                <option value="130">FREEZER VERTICAL/HORIZONTAL (130W)</option>
+                <option value="70">FRIGOBAR (70W)</option>
+                <option value="1000">FRITADEIRA ELÉTRICA (1000W)</option>
+                <option value="90"> GELADEIRA 1 PORTA (CO) (90W)</option>
+                <option value="130">GELADEIRA 2 PORTAS (130W)</option>
+                <option value="900">GRILL (900W)</option>
+                <option value="26">IOGURTEIRA (26W)</option>
+                <option value="11">LÂMPADA FLUORESCENTE COMPACTA - 11W (11W)</option>
+                <option value="15">LÂMPADA FLUORESCENTE COMPACTA (COMUM) - 15W (15W)</option>
+                <option value="23">LÂMPADA FLUORESCENTE COMPACTA - 23W (23W)</option>
+                <option value="40">LÂMPADA INCANDESCENTE - 40W (40W)</option>
+                <option value="60">LÂMPADA INCANDESCENTE (CO) - 60W (60W)</option>
+                <option value="100">LÂMPADA INCANDESCENTE - 100W (100W)</option>
+                <option value="55">LÂMPADA HALÓGENA - 55W (55W)</option>
+                <option value="12">LÂMPADA LED (L) - 12W (12W)</option>
+                <option value="1500">LAVADORA DE LOUÇAS (1500W)</option>
+                <option value="300">LIQUIDIFICADOR (300W)</option>
+                <option value="500"> MÁQUINA LAVADORA DE ROUPAS (CO) (500W)</option>
+                <option value="100">MÁQUINA DE COSTURA (100W)</option>
+                <option value="350">MÁQUINA DE FURAR (350W)</option>
+                <option value="70"> LAPTOP (CO) (70W)</option>  
+                <option value="320">MOEDOR DE CARNES (320W)</option>
+                <option value="420">MULTIPROCESSADOR (420W)</option>
+                <option value="40">NEBULIZADOR (40W)</option>
+                <option value="100">OZONIZADOR (100W)</option>
+                <option value="1100">PANELA ELÉTRICA (1100W)</option>
+                <option value="1100">PIPOQUEIRA (1100W)</option>
+                <option value="45">RÁDIO ELÉTRICO GRANDE (45W)</option>
+                <option value="10">RÁDIO ELÉTRICO PEQUENO (10W)</option>
+                <option value="5">RÁDIO RELÓGIO (CO) (5W)</option>
+                <option value="5000">SAUNA (5000W)</option>
+                <option value="1400">SECADOR DE CABELO GRANDE (1400W)</option>
+                <option value="600">SECADOR DE CABELO PEQUENO (600W)</option>
+                <option value="3500">SECADORA DE ROUPA GRANDE (3500W)</option>
+                <option value="1000">SECADORA DE ROUPA PEQUENA (1000W)</option>
+                <option value="2200">SECADOR DE MÃO (2200w)</option>
+                <option value="20">SECRETÁRIA ELETRÔNICA (20W)</option>
+                <option value="15">SORVETEIRA (15W)</option>
+                <option value="5">TELEFONE SEM FIO (5W)</option>
+                <option value="3500">TORNEIRA ELÉTRICA (3500W)</option>
+                <option value="800">TORRADEIRA (800W)</option>
+                <option value="60">TV EM CORES - 14" (60W)</option>
+                <option value="70">TV EM CORES - 18" (70W)</option>
+                <option value="90">TV EM CORES - 20" (90W)</option>
+                <option value="110">TV EM CORES - 29" (110W)</option>
+                <option value="40">TV EM PRETO E BRANCO (40W)</option>
+                <option value="150">TV LCD - 32" (CO) (150W)</option>
+                <option value="119">TV LED - 32" (L) (119W)</option>
+                <option value="200">TV PLASMA - 32" (200W)</option>
+                <option value="70">TV TUBO - 14" (70W)</option>
+                <option value="110">TV TUBO- 29" (110W)</option>
+                <option value="120">VENTILADOR DE TETO (120W)</option>
+                <option value="65">VENTILADOR PEQUENO (65W)</option>
+                <option value="10">VÍDEOCASSETE (10W)</option>
+                <option value="15">VIDEOGAME DE NOVA GERAÇÃO (CO) (200W)</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="horas" class="tituloMargin" style="font-size: x-large; font-weight: 550;">Horas de uso por dia:</label>
+            <input type="number" id="horas" placeholder="Digite as horas de uso diárias">
+        </div>
+
+        <div class="input-group">
+            <label for="tarifa" class="tituloMargin" style="font-size: x-large; font-weight: 550;">Tarifa de energia (R$/kWh):</label>
+            <input type="number" id="tarifa" placeholder="Digite a tarifa de energia em R$" step="0.01">
+        </div>
+
+        <button onclick="adicionarAparelho()">Adicionar Aparelho</button>
+
+        <h2 class="tituloMargin" style="font-size: xx-large; font-weight: 500;">Dispositivos Selecionados:</h2>
+        <div id="listaAparelhos"></div>
+
+        <div id="resultado" class="result">
+            Total de consumo mensal: <strong id="consumoTotal">0.00 kWh</strong><br>
+            Custo total: <strong id="custoTotal">R$ 0.00</strong>
+        </div>
+    </div>
+	
+	<div class="headerFooter" style="margin-top: 1.5%; position: absolute; bottom: 0.5%"> <!-- Header -->
+		<a href=".."><b><font size="6" class="tituloMargin" style="font-weight: 500;">
+			Volte ao nosso jogo interativo clicando aqui!
+		</font></b></a>
+	</div>
+	</center>
+
+    <script src="calc.js"></script>
+
+</body>
+</html>
