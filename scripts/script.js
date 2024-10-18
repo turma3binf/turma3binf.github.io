@@ -76,22 +76,13 @@ var jogadorProgresso = [cozinhaProgresso, salaProgresso, quartoProgresso, banhei
 var jogadorEnergiaFaltando = [cozinhaFaltando, salaFaltando, quartoFaltando, banheiroFaltando];
 var jogadorEconomia = 0;
 
-// Tempo
-var tempoInicial;
-var tempoFinal;
-var tempoTotal;
 
-// Função para iniciar o temporizador
-function iniciarTemporizador() {
-    tempoInicial = new Date();  // Grava o momento de início
 }
 
 // Função para parar o temporizador e calcular a pontuação
 function finalizarTemporizador() {
-    tempoFinal = new Date();  // Grava o momento de fim
-    tempoTotal = Math.floor((tempoFinal - tempoInicial) / 1000);  // Calcula o tempo total em segundos
-    console.log(tempoTotal, tempoFinal, tempoInicial)
-    calcularPontuacao(tempoTotal);  // Chama a função de calcular a pontuação
+   
+    calcularPontuacao();  // Chama a função de calcular a pontuação
 }
 
 // Função para calcular a pontuação baseada no tempo
@@ -124,7 +115,7 @@ function mudarTela(mapa){
 	}
 
 	if (mapa == 1) {
-		if(tempoInicial != null){ iniciarTemporizador(); } // Inicia o temporizador ao começar o jogo
+		
 
 		document.getElementById('btn_voltar').style.visibility = "hidden"; 
 		document.getElementById('btn_proximo').style.visibility = "visible"; 
@@ -153,7 +144,7 @@ function mudarTela(mapa){
 		interfaceHUD.style.visibility = "hidden";
 		document.getElementById('btn_voltar').style.visibility = "hidden"; 
 		document.getElementById('btn_proximo').style.visibility = "hidden"; 
-		calcularPontuacao()
+		
 	}
 
 	document.getElementById('consumoQuarto').innerHTML = comodos[jogadorComodo];
