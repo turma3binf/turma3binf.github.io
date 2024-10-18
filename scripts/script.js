@@ -90,6 +90,7 @@ function iniciarTemporizador() {
 function finalizarTemporizador() {
     tempoFinal = new Date();  // Grava o momento de fim
     tempoTotal = Math.floor((tempoFinal - tempoInicial) / 1000);  // Calcula o tempo total em segundos
+    console.log(tempoTotal, tempoFinal, tempoInicial)
     calcularPontuacao(tempoTotal);  // Chama a função de calcular a pontuação
 }
 
@@ -106,6 +107,8 @@ function mudarTela(mapa){
 	
 	jogadorComodo = mapa;
 	comodoAtual = comodos[mapa];
+	    console.log(tempoTotal, tempoFinal, tempoInicial)
+
 
 	if (mapa <= 1) {
 		document.getElementById('btn_voltar').style.visibility = "hidden";
