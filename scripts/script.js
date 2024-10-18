@@ -74,7 +74,31 @@ var comodoObjetos = [cozinhaObjetos, salaObjetos, quartoObjetos, banheiroObjetos
 var jogadorComodo = 0;
 var jogadorProgresso = [cozinhaProgresso, salaProgresso, quartoProgresso, banheiroProgresso];
 var jogadorEnergiaFaltando = [cozinhaFaltando, salaFaltando, quartoFaltando, banheiroFaltando];
+<<<<<<< HEAD
 var jogadorEconomia = 0;
+=======
+
+//function reescalarMapa(){
+	//var mapaElemento = document.getElementByName(comodoMapas[jogadorComodo].replace("#", ""));
+	//var escala = divJogo.clientWidth / fundoJogo.naturalWidth;
+	//var areaElemento = mapaElemento.querySelectorAll(`area`);
+
+	//console.log(mapaElemento);
+
+    //areaElemento.forEach(area => {
+     //   const coords = area.getAttribute('coords').split(',').map(Number);
+    //    console.log(`Coordenadas Originais: ${coords}`);
+	//
+       // if (coords.length === 4) { // Verifique se temos 4 coordenadas
+     //       const newCoords = coords.map(coord => Math.round(coord * escala));
+   //         console.log(`Novas Coordenadas: ${newCoords}`);
+    //        area.setAttribute('coords', newCoords.join(','));
+      //  } else {
+        //    console.error('Formato de coordenadas inválido. Esperado: left,top,right,bottom');
+      //  }
+    //});
+//}
+>>>>>>> 192dfc03193b8eb3c0a70e17907ef9fad55ee0c3
 
 function mudarTela(mapa){
 	fundoJogo.src = comodoImagens[mapa];
@@ -136,13 +160,22 @@ function mudarTela(mapa){
         'use strict';
 	 $('img[usemap]').mapster({
   mapKey: 'data-key',
+<<<<<<< HEAD
   fillColor: 'ffffff',
   fillOpacity: 0.0,
+=======
+  fillColor: '4F7942',
+  fillOpacity: 0.3,
+>>>>>>> 192dfc03193b8eb3c0a70e17907ef9fad55ee0c3
   highlight: true,
   isSelectable: true,
   isDeselectable: false,
   stroke: true,
+<<<<<<< HEAD
   strokeColor: 'ffffff',
+=======
+  strokeColor: '228B22',
+>>>>>>> 192dfc03193b8eb3c0a70e17907ef9fad55ee0c3
   strokeWidth: 2, 
   scaleMap: true,  
 	//imagens alternativas para ligar/desligar
@@ -183,6 +216,10 @@ function mudarTela(mapa){
 	       ]
 	
 });})
+<<<<<<< HEAD
+=======
+	//reescalarMapa();
+>>>>>>> 192dfc03193b8eb3c0a70e17907ef9fad55ee0c3
 	
 }
 
