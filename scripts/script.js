@@ -95,8 +95,7 @@ function mudarTela(mapa){
 	
 	jogadorComodo = mapa;
 	comodoAtual = comodos[mapa];
-	    console.log(tempoTotal, tempoFinal, tempoInicial)
-		console.log(jogadorComodo, comodoAtual)
+	    
 
 	if (mapa <= 1) {
 		document.getElementById('btn_voltar').style.visibility = "hidden";
