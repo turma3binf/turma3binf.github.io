@@ -76,6 +76,31 @@ var jogadorProgresso = [cozinhaProgresso, salaProgresso, quartoProgresso, banhei
 var jogadorEnergiaFaltando = [cozinhaFaltando, salaFaltando, quartoFaltando, banheiroFaltando];
 var jogadorEconomia = 0;
 
+// Tempo
+var tempoInicial;
+var tempoFinal;
+var tempoTotal;
+
+// Função para iniciar o temporizador
+function iniciarTemporizador() {
+    tempoInicial = new Date();  // Grava o momento de início
+}
+
+// Função para parar o temporizador e calcular a pontuação
+function finalizarTemporizador() {
+    tempoFinal = new Date();  // Grava o momento de fim
+    tempoTotal = Math.floor((tempoFinal - tempoInicial) / 1000);  // Calcula o tempo total em segundos
+    calcularPontuacao(tempoTotal);  // Chama a função de calcular a pontuação
+}
+
+// Função para calcular a pontuação baseada no tempo
+function calcularPontuacao(tempoTotal) {
+    var pontuacao = Math.max(1000 - tempoTotal * 10, 0);  // Exemplo: 1000 pontos - 10 pontos por segundo
+
+	document.getElementById('pontuacaoFinal').innerHTML = pontuacao;
+	document.getElementById('energiaFinal').innerHTML = jogadorEconomia;
+}
+
 function mudarTela(mapa){
 	fundoJogo.src = comodoImagens[mapa];
 	
@@ -221,30 +246,7 @@ function proximoComodo(opcao){
 	}
 }
 
-// Tempo
-var tempoInicial;
-var tempoFinal;
-var tempoTotal;
 
-// Função para iniciar o temporizador
-function iniciarTemporizador() {
-    tempoInicial = new Date();  // Grava o momento de início
-}
-
-// Função para parar o temporizador e calcular a pontuação
-function finalizarTemporizador() {
-    tempoFinal = new Date();  // Grava o momento de fim
-    tempoTotal = Math.floor((tempoFinal - tempoInicial) / 1000);  // Calcula o tempo total em segundos
-    calcularPontuacao(tempoTotal);  // Chama a função de calcular a pontuação
-}
-
-// Função para calcular a pontuação baseada no tempo
-function calcularPontuacao(tempoTotal) {
-    var pontuacao = Math.max(1000 - tempoTotal * 10, 0);  // Exemplo: 1000 pontos - 10 pontos por segundo
-
-	document.getElementById('pontuacaoFinal').innerHTML = pontuacao;
-	document.getElementById('energiaFinal').innerHTML = jogadorEconomia;
-}
 
 
 // PHONES
